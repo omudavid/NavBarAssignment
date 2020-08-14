@@ -10,6 +10,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment, HomeFragment())
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            commit()
+        }
+
             btnBookmark.setOnClickListener {
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragment, BookmarksFragment())
